@@ -43,14 +43,14 @@ li {
   &::after {
 	  content: "";
 	  display: block;
-	  width: 2px;
-	  height: 5px;
+	  width: 4px;
+	  height: 7px;
 	  border-bottom: solid 2px #fff;
 	  border-right: solid 2px #fff;
 	  transform: rotate(45deg);
 	  position: absolute;
 	  left: -16px;
-	  top: 8px;
+	  top: 7px;
   }
   &::before {
 	  content: "";
@@ -215,4 +215,23 @@ input.no-success {
 	&:hover {
 		@extend .btn5-hover;
 	}
+}
+.info-popup {
+	margin-top: 20px;
+	@include text(13px,$font1-light);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 25px;
+	box-sizing: border-box;
+	width: 320px;
+	height: 169px;
+	border-radius: 3px;
+	background-color: #ffffff;
+	border: 1px solid $pr-4-light-1;
+}
+.social {
+	font-size: 15px;
+	color: $pr-4-light-1;
+	text-align: center;
 }
