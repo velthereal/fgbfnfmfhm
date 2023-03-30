@@ -592,8 +592,11 @@ button:disabled {
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
-	background-color: #03a9f4;
+	background-color: $prime-1;
+	border: 1px solid #fff;
+	box-sizing: border-box;
 }
 .bg-social a:hover {
-	background-color: #0187c3;
+	background-color: $pr-1-dark-1;
+	border: none;
 }
