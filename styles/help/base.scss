@@ -133,7 +133,7 @@ blockquote {
   padding: 15px 35px;
 }
 // lists
-ul {
+ul{
  list-style-type: none;
 }
 li {
@@ -174,7 +174,6 @@ input[type="text"], .form-select {
  border: 1px solid $pr-4-light-1;
  box-sizing: border-box;
  border-radius: 3px;
- margin-bottom: 20px;
  &:hover {
 	 background-color: #fff;
 	 cursor: pointer;
@@ -202,6 +201,8 @@ input[type="text"] {
 	 box-shadow: inset 0 0 2.5px $pr-1-light-1;
  	}
 }
+
+// input pages
 .pages {
   margin-bottom: 20px;
   width: 351px;
@@ -210,7 +211,7 @@ input[type="text"] {
   border: 1px solid $pr-4-light-1;
   border-radius: 3px;
 }
-.pages input{
+.pages input.pages-number{
   width: 257px;
   height: 48px;
   color: $pr-4-dark-1;
@@ -220,7 +221,15 @@ input[type="text"] {
   border: none;
   &:focus-visible {
 	  outline: none;
+	  border: none;
+	  background-color: rgba(255,255,255,0);
+	  box-shadow: none;
   }
+	&:active {
+		border: none;
+		background-color: rgba(255,255,255,0);
+		box-shadow: none;
+	}
 }
 .pages button {
   width: 47px;
@@ -241,6 +250,8 @@ input[type="text"] {
 .pages button:last-of-type {
   border-left: 1px solid $pr-4-light-1;
 }
+
+// input success and no success
 input.success {
   background-color: #fff;
   border: 1px solid #09a912;
@@ -252,6 +263,14 @@ input.success {
 		border: #09a912 1px solid;
 		background-color: #fff;
 		box-shadow: none;
+	}
+	&::after {
+		content: "";
+		display: block;
+		width: 20px;
+		height: 15px;
+		border-bottom: solid 2px red;
+		border-bottom: solid 2px red;
 	}
 }
 input.no-success {
@@ -267,6 +286,7 @@ input.no-success {
 		box-shadow: none;
 	}
 }
+// input checkbox
 input[type="checkbox"] {
 	background-color: $prime-1;
 }
@@ -307,6 +327,75 @@ input:checked {
 	background-color: $prime-1;
 	border-color: $prime-1;
 }
+.check input:disabled + label::before {
+	content: "";
+	display: inline-block;
+	width: 6px;
+	height: 13px;
+	border-bottom: solid 2px #fff;
+	border-right: solid 2px #fff;
+	position: absolute;
+	transform: rotate(45deg);
+	left: 10px;
+	top: 5px;
+}
+.check input:disabled + label::after {
+	content: "";
+	background-color: $pr-4-light-1;
+	border-color: $pr-4-light-1;
+}
+// input radio
+input[type="radio"] {
+	background-color: $prime-1;
+}
+.radio input {
+	display: none;
+} 
+.radio label {
+	position: relative;
+}
+.radio label::after {
+	content: "";
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border: solid 2px $pr-4-light-1;
+	border-radius: 13px;
+}
+.radio input:hover + label::after  {
+	border-color: $prime-1;
+	@extend .hover;
+}
+.radio input:checked + label::before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 8px;
+	background-color: $prime-1;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+.radio input:checked + label::after {
+	border-color: $prime-1;
+}
+.radio input:disabled + label::before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 8px;
+	background-color:$pr-4-light-1;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+.radio input:disabled + label::after {
+	content: "";
+	border-color: $pr-4-light-1;
+}
+// buttons
 .btn1 {
   @include btn(220px,$prime-2); 
   text-transform: uppercase;
@@ -384,6 +473,8 @@ button:disabled {
 	  @extend .hover;
   }
 }
+
+// popup
 .info-popup {
   margin-top: 20px;
   @include text(13px,$font1-light);
@@ -398,8 +489,111 @@ button:disabled {
   background-color: #ffffff;
   border: 1px solid $pr-4-light-1;
 }
-.social {
-  font-size: 15px;
-  color: $pr-4-light-1;
-  text-align: center;
+
+
+// tabs
+.tab {
+	display: flex;
+	height: 60px;
+	// overflow: hidden;
+	border-bottom: solid 2px #f0f0f1;
+	box-sizing: border-box;
+}
+
+.tab button {
+	position: relative;
+	bottom: -2px;
+	font-size: 14px;
+	color: #a3a6a9;
+	font-family: $font1-regular;
+	background-color: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	color: #a3a6a9;
+}
+.tab button.active {
+	border-bottom: 2px solid $prime-2;
+	color: $prime-2;
+	font-family: $font1-medium;
+}
+.tabcontent {
+	display: none;
+	padding: 35px 0;
+	font-size: 15px;
+	font-family: $font1-regular;
+	color: #51555a;
+}
+
+
+
+
+// pagination
+
+.pagination {
+	margin-top: 50px;
+	display: flex;
+}
+.pagination a {
+	margin: 2px;
+	display: inline-block;
+	font-size: 13px;
+	color: #a3a6a9;
+	text-decoration: none;
+	padding: 2px 9.5px;
+	width: 25px;
+	height: 25px;
+	border-radius: 13px;
+}
+.pagination a.active {
+	background-color: $prime-1;
+	width: 25px;
+	height: 25px;
+	border-radius: 13px;
+	color: #fff;
+}
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+
+.social a {
+	font-size: 15px;
+	color: #a3a6a9;
+	text-decoration: none;
+	margin-right: 30px;
+}
+.social a:nth-of-type(1):hover {
+	color: #3b5999;
+	@extend .hover;
+}
+.social a:nth-of-type(2):hover {
+	color: #55acef ;
+	@extend .hover;
+}
+.social a:nth-of-type(3):hover {
+	color: #bd081b;
+	@extend .hover;
+}
+.social a:nth-of-type(4):hover {
+	color: #de4b39;
+	@extend .hover;
+}
+
+.bg-social a {
+	font-size: 15px;
+	color: #fff;
+	text-decoration: none;
+	margin-right: 15px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #03a9f4;
+}
+.bg-social a:hover {
+	background-color: #0187c3;
 }
