@@ -24,6 +24,9 @@
 	height: 40px;
 	border-radius: 3px;
 }
+.hover {
+	cursor: pointer;
+}
 .disabled {
 	background-color: $pr-4-light-2;
 	border: none;
